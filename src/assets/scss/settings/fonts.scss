@@ -1,21 +1,24 @@
 @font-face {
-  font-family: "AvenirNext";
+  font-family: 'AvenirNext';
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("../../fonts/AvenirNext-Regular.ttf");
+  src: url('../../fonts/AvenirNext-Regular.ttf');
 }
 @font-face {
-  font-family: "AvenirNext-Bold";
+  font-family: 'AvenirNext-Bold';
   font-style: normal;
   font-weight: 500;
   font-display: block;
-  src: url("../../fonts/AvenirNext-DemiBold.ttf");
+  src: url('../../fonts/AvenirNext-DemiBold.ttf');
 }
 
-body, h4 {
-  font-family: "AvenirNext";
+body,
+h4 {
+  font-family: 'AvenirNext';
 }
-h1, h2, h3 {
-  font-family: "AvenirNext-Bold";
+h1,
+h2,
+h3 {
+  font-family: 'AvenirNext-Bold';
 }

@@ -21,6 +21,20 @@
     left: 0;
     margin-top: 10vh;
     background-color: rgba(0, 0, 0, 0.7);
+    transition: all 0.4s ease-in-out;
+  }
+
+  &__wrapper_disable {
+    left: -100vw;
+    transition: all 0.4s ease-in-out;
+    pointer-events: none;
+    @media screen and (min-width: 1280px) {
+      left: 0;
+      top: -10vh;
+      transform: scale(1.2);
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   &__info {
@@ -50,13 +64,23 @@
       font-size: $font-size-middle;
       color: $color-grey;
 
-      #{$self}__phone,
-      #{$self}__twitter {
-        margin-top: 26px;
+      p {
+        &:first-of-type {
+          margin-top: 16px;
+        }
+        margin-block-start: spacing(1);
+        margin-block-end: spacing(1);
+        margin-bottom: 26px;
       }
 
       #{$self}__twitter {
         text-decoration: none;
+        color: $color-black;
+        font-size: $font-size-small;
+        transition: all 0.15s ease-in-out;
+        &:hover {
+          color: $color-green;
+        }
       }
     }
   }
@@ -71,28 +95,15 @@
   align-items: center;
 
   border-radius: 50%;
-  border: 8px solid white;
-  width: 80px;
-  height: 80px;
-  transform: scale(0.4);
-
-  &:after {
-    position: absolute;
-    content: '';
-    width: 0px;
-    height: 0px;
-    bottom: -148px;
-    left: 23px;
-    border: 25px solid transparent;
-    border-top: 35px solid #fff;
-  }
-
+  border: 2px solid white;
+  width: 10px;
+  height: 10px;
   background: linear-gradient(91deg, #43e895, #34b379);
   background-size: 600% 600%;
 
-  -webkit-animation: grad 12s ease infinite;
-  -moz-animation: grad 12s ease infinite;
-  animation: grad 12s ease infinite;
+  -webkit-animation: grad 6s ease infinite;
+  -moz-animation: grad 6s ease infinite;
+  animation: grad 6s ease infinite;
 }
 
 @-webkit-keyframes grad {
