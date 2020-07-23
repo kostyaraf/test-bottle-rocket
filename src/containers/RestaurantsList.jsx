@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from 'react'
-// import { getRestaurants, Restaurants } from '../services/query'
+import React, { useEffect } from 'react'
 import RestaurantCard from '../components/RestaurantCard'
-import {
-  setCurrentRestaurant,
-  setRestaurantsList,
-  detailsActivate,
-} from '../store/actions'
-import store from '../store/store'
 import restaurants from '../store/restaurants'
 import { view } from 'react-easy-state'
 
-
-export default view(props => {
+export default view(() => {
   useEffect(() => {
     if (!restaurants.isListUpload) restaurants.getRestaurants()
   }, [])
@@ -27,7 +19,6 @@ export default view(props => {
             setCurrentIndex: restaurants.setCurrentIndex,
           }}
           index={index}
-          store={store}
         />
       })}
     </div>

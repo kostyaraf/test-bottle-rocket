@@ -4,15 +4,15 @@ import React from 'react'
 export function DetailsInfo({ name, category, contact, location }) {
   return (
     <div className={'details__info'}>
-      <div className={'header'}>
-        <p className={'name'}>{name}</p>
-        <p className={'category'}>{category}</p>
+      <div className={'details__header'}>
+        <p className={'details__name'}>{name}</p>
+        <p className={'details__category'}>{category}</p>
       </div>
-      <div className={'info'}>
-        <p className={'address'}>{location.formattedAddress}</p>
-        <p className={'phone'}>{contact.formattedPhone}</p>
+      <div className={'details__info'}>
+        <p className={'details__address'}>{location.formattedAddress}</p>
+        <p className={'details__phone'}>{contact.formattedPhone}</p>
         <a
-          className={'twitter'}
+          className={'details__twitter'}
           href={`https://twitter.com/${contact.twitter}`}
           target='_blank'
         >{`@${contact.twitter}`}</a>
