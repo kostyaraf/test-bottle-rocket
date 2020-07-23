@@ -1,19 +1,28 @@
-export const getRestaurants = async () => {
-  let response = await fetch(
+export const getRestaurants = () => {
+  return fetch(
     'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json'
   )
-    .then(r => r.json())
-    .then(r => {
-      console.log(r.restaurants)
-      return r.restaurants
-    })
-    .catch(e => {
-      console.log(`Something went wrong! Error: ${e}`)
-      return []
-    })
-  let jsonResponse = await response
-  return jsonResponse.restaurants
 }
+
+// export const getRestaurants = async () => {
+//   let response = await fetch(
+//     'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json'
+//   )
+//     .then(r => r.json())
+//     .then(r => {
+//       console.log(r.restaurants)
+//       return r.restaurants
+//     })
+//     .catch(e => {
+//       console.log(`Something went wrong! Error: ${e}`)
+//       return []
+//     })
+//   let jsonResponse = await response
+//   return jsonResponse.restaurants
+// }
+
+
+
 
 export const Restaurants = [
   {
