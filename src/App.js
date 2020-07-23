@@ -1,55 +1,39 @@
 import React, { useState, useEffect } from 'react'
-// import { Counter } from './features/counter/Counter';
-// import './App.css';
 import MainContainer from './components/MainContainer'
 import RestaurantsList from './containers/RestaurantsList'
-import MainHeader from './components/MainHeader'
+import MainHeader from './containers/MainHeader'
 import Details from './components/Details'
-import { getRestaurants } from './services/query'
-import {
-  setCurrentRestaurant,
-  setRestaurantsList,
-  detailsActivate,
-} from './store/actions.js'
-import store from './store/store'
-import restaurants from './restaurants'
+import restaurants from './store/restaurants'
+import { view } from 'react-easy-state'
 
-function App() {
-  // const [state] = useState({
-  //   restaurants: getRestaurants(),
-  // })
-
-  // getRestaurants()
-  //   .then(r => r.json())
-  //   .then(r => store.dispatch(setRestaurantsList(r.restaurants)))
-
-  // console.log(store.getState())
-  // let state = store.getState()
-
-  // useEffect(() => {
-  //   console.log('state', state)
-  // }, [state])
-
-  // const store = store.getState()
-  restaurants.getRestaurants()
-
+export default view(() => {
   return (
     <div
       className='App'
       onClick={() => {
-        console.log(store.getState())
+        // console.log(store.getState())
       }}
     >
       <MainContainer>
-        <MainHeader>Lunch Time</MainHeader>
-        <RestaurantsList restaurants={restaurants.restaurantsList} />
-        {/* {state.currentRestaurant.lenght === 0 &&
-        <Details items={store.getState().currentRestaurant}/>
-        } */}
-        
+        <MainHeader
+          isBackButtonActive={restaurants.isDetailsActive}
+          backButtonAction={() => {
+            restaurants.setDetailsActive(false)
+          }}
+        >
+          Lunch Time
+        </MainHeader>
+        <RestaurantsList />
+        {restaurants.isDetailsActive && (
+          // console.log(restaurants.restaurantsList[restaurants.currentIndex])
+          <Details
+            item={restaurants.restaurantsList[restaurants.currentIndex]}
+            closeDetails={() => {
+              restaurants.setDetailsActive(false)
+            }}
+          />
+        )}
       </MainContainer>
     </div>
   )
-}
-
-export default App
+})

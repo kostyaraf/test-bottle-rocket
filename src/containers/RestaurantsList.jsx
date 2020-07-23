@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getRestaurants, Restaurants } from '../services/query'
+// import { getRestaurants, Restaurants } from '../services/query'
 import RestaurantCard from '../components/RestaurantCard'
 import {
   setCurrentRestaurant,
@@ -7,7 +7,7 @@ import {
   detailsActivate,
 } from '../store/actions'
 import store from '../store/store'
-import restaurants from '../restaurants'
+import restaurants from '../store/restaurants'
 import { view } from 'react-easy-state'
 
 
@@ -18,17 +18,18 @@ export default view(props => {
   
   return (
     <div className='restaurant-list'>
-      {restaurants.restaurantsList.map(e => (
-        <RestaurantCard
+      {restaurants.restaurantsList.map((e, index) => {
+        return <RestaurantCard
           data={e}
+          key={index}
           actions={{
-            setCurrentRestaurant,
-            setRestaurantsList,
-            detailsActivate,
+            setDetailsActive: restaurants.setDetailsActive,
+            setCurrentIndex: restaurants.setCurrentIndex,
           }}
+          index={index}
           store={store}
         />
-      ))}
+      })}
     </div>
   )
 })

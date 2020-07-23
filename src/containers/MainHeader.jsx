@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 
 export default props => {
+  const {isBackButtonActive, backButtonAction} = props
   return (
     <div className='main-header__wrapper'>
       <div className='main-header'>
+        <div className='main-header__back-button-wrapper'>
         <div
-          className='main-header__back'
-          onClick={() => console.log('click')}
+          className='main-header__back-button'
+          style={isBackButtonActive ? {} : {opacity: '0', user: 'none'}}
+          onClick={() => {isBackButtonActive && backButtonAction()}}
         ></div>
+        </div>
         <h1>{props.children.toString()}</h1>
         <img
           className='main-header__image'

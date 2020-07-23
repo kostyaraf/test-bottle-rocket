@@ -22,12 +22,21 @@
     min-height: 50px;
   }
 
-  &__back {
+  &__back-button-wrapper {
+    width: 20px;
+    height: 20px;
+    // border-top: 5px solid $color-white;
+    // border-left: 5px solid $color-white;
+    // transform: rotate(-45deg);
+  }
+  &__back-button {
     width: 20px;
     height: 20px;
     border-top: 5px solid $color-white;
     border-left: 5px solid $color-white;
     transform: rotate(-45deg);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
   }
 
   &__image {

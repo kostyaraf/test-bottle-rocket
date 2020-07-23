@@ -1,24 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default props => {
-  const { data, actions, store } = props
-  // console.log('data', data)
+  const { data, actions, index } = props
 
   return (
     <div
       className='restaurant-card'
       onClick={() => {
-        store.dispatch(actions.detailsActivate(true))
-        store.dispatch(actions.setCurrentRestaurant(data))
-        setTimeout(() => {
-          console.log(store.getState())
-        }, 1500)
+        actions.setDetailsActive(true)
+        actions.setCurrentIndex(index)
       }}
     >
       <div
         className='restaurant-card__background'
         style={{ backgroundImage: `url("${data.backgroundImageURL}"` }}
-      ></div>
+      />
 
       <div className='restaurant-card__shadow'></div>
       <div className='restaurant-card__typography'>
