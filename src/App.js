@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 // import './App.css';
 import MainContainer from './elements/MainContainer'
 import RestaurantsList from './components/RestaurantsList'
+import MainHeader from './components/MainHeader'
 import { getRestaurants } from './services/query'
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
   return (
     <div className='App'>
       <MainContainer>
+        <MainHeader>
+          Lunch Time
+        </MainHeader>
         <RestaurantsList restaurants={state.restaurants} />
       </MainContainer>
     </div>

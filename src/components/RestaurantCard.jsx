@@ -15,8 +15,10 @@ export default props => {
         className='restaurant-card__background'
         style={{ backgroundImage: `url("${data.backgroundImageURL}"` }}
       ></div>
+
+      <div className='restaurant-card__shadow'></div>
       <div className='restaurant-card__typography'>
-        <p className='restaurant-card__title'>{data.name}</p>
+        <h3 className='restaurant-card__title'>{data.name}</h3>
         <p className='restaurant-card__category'>{data.category}</p>
       </div>
     </div>
