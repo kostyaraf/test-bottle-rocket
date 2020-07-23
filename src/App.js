@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import MainContainer from './components/MainContainer'
 import RestaurantsList from './containers/RestaurantsList'
 import MainHeader from './components/MainHeader'
@@ -19,14 +19,13 @@ export default view(() => {
           Lunch Time
         </MainHeader>
         <RestaurantsList />
-        {restaurants.isDetailsActive && (
-          <Details
-            item={restaurants.restaurantsList[restaurants.currentIndex]}
-            closeDetails={() => {
-              restaurants.setDetailsActive(false)
-            }}
-          />
-        )}
+        <Details
+          item={restaurants.restaurantsList[restaurants.currentIndex]}
+          closeDetails={() => {
+            restaurants.setDetailsActive(false)
+          }}
+          isActive={restaurants.isDetailsActive}
+        />
       </MainContainer>
     </div>
   )

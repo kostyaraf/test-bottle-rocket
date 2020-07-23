@@ -3,17 +3,21 @@ import { DetailsMap } from './DetailsMap'
 import { DetailsInfo } from './DetailsInfo'
 
 export default function Details(props) {
-  const { item, closeDetails } = props
+  const item = props.item || {}
+  const { closeDetails, isActive } = props
   const wrapperClassName = 'details__wrapper'
   return (
     <div
-      className={wrapperClassName}
+      className={`
+        ${wrapperClassName} ${isActive ? '' : wrapperClassName + '_disable'}
+      `}
       onClick={e => {
-        if (e.target.className === wrapperClassName) closeDetails()
+        if (e.target.className.includes(wrapperClassName)) closeDetails()
       }}
+      // style={isActive ? {} : { left: '-100vw', opacity: 0 }}
     >
       <div className='details'>
-        <DetailsMap {...item} />
+        {item.location ? <DetailsMap {...item} /> : ''}
         <DetailsInfo {...item} />
       </div>
     </div>
