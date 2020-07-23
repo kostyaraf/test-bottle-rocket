@@ -1,13 +1,14 @@
-@import './settings/spacing.scss';
-@import './settings/fonts.scss';
-@import './settings/colors.scss';
-@import './settings/text.scss';
+@import './settings/spacing';
+@import './settings/fonts';
+@import './settings/colors';
+@import './settings/text';
 
-@import './elements/main-container.scss';
-
-@import './components/restaurant-list.scss';
-@import './components/restaurant-card.scss';
+@import './components/main-header';
+@import './components/main-container';
+@import './components/restaurant-list';
+@import './components/restaurant-card';
 
 body {
   margin: 0;
+  background-color: $color-body;
 }

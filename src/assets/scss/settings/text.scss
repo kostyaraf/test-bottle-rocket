@@ -1,3 +1,17 @@
-$font-size-small: 12px;
-$font-size-middle: 16px;
+
 $font-size-big: 17px;
+$font-size-middle: 16px;
+$font-size-small: 12px;
+
+body, p, h4 {
+  font-size: $font-size-small;
+}
+h1 {
+  font-size: $font-size-big;
+}
+h2, h3 {
+  font-size: $font-size-middle;
+}
+
+
+
