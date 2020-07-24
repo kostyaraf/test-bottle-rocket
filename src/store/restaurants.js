@@ -21,7 +21,7 @@ const restaurants = store({
   setCurrentIndex(num) {
     restaurants.currentIndex = num
   },
-  setDetailsActive(bool) {
+  getDetails(bool) {
     if (bool) {
       restaurants.isDetailsVisible = bool
       setTimeout(() => {
@@ -34,7 +34,6 @@ const restaurants = store({
       }, 600)
       restaurants.isDetailsActive = bool
     }
-
   }
 })
 export default restaurants

@@ -4,6 +4,7 @@ import RestaurantsList from './containers/RestaurantsList'
 import MainHeader from './components/MainHeader'
 import Details from './components/Details'
 import restaurants from './store/restaurants'
+import { switchBodyScrollY } from './services/body'
 import { view } from 'react-easy-state'
 
 export default view(() => {
@@ -13,21 +14,22 @@ export default view(() => {
         <MainHeader
           isBackButtonActive={restaurants.isDetailsActive}
           backButtonAction={() => {
-            restaurants.setDetailsActive(false)
+            restaurants.getDetails(false)
+            switchBodyScrollY()
           }}
         >
           Lunch Time
         </MainHeader>
         <RestaurantsList />
-        {restaurants.isDetailsVisible && (
-          <Details
-            item={restaurants.restaurantsList[restaurants.currentIndex]}
-            closeDetails={() => {
-              restaurants.setDetailsActive(false)
-            }}
-            isActive={restaurants.isDetailsActive}
-          />
-        )}
+        <Details
+          item={restaurants.restaurantsList[restaurants.currentIndex]}
+          closeDetails={() => {
+            restaurants.getDetails(false)
+            switchBodyScrollY()
+          }}
+          isActive={restaurants.isDetailsActive}
+          style={restaurants.isDetailsVisible ? {} : { display: 'none' }}
+        />
       </MainContainer>
     </div>
   )

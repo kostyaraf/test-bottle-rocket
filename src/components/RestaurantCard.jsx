@@ -7,8 +7,9 @@ export default props => {
     <div
       className='restaurant-card'
       onClick={() => {
-        actions.setDetailsActive(true)
+        actions.getDetails(true)
         actions.setCurrentIndex(index)
+        actions.switchBodyScrollY()
       }}
     >
       <div
