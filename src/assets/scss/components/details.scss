@@ -1,5 +1,4 @@
 .details {
-  z-index: 9;
   top: 0;
   width: 100%;
   height: 100vh;
@@ -21,13 +20,14 @@
     left: 0;
     margin-top: 10vh;
     background-color: rgba(0, 0, 0, 0.7);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
   &__wrapper_disable {
-    left: -100vw;
-    transition: all 0.4s ease-in-out;
+    left: -110vw;
+    transition: all 0.5s ease-in-out;
     pointer-events: none;
+
     @media screen and (min-width: 1280px) {
       left: 0;
       top: -10vh;
@@ -39,9 +39,10 @@
 
   &__info {
     text-align: left;
+
     #{$self}__header {
       padding: spacing(1) spacing(2);
-      background-color: $color-green;
+      background-color: $color-dark-green;
       color: $color-white;
 
       p {
@@ -53,31 +54,39 @@
         font-family: 'AvenirNext-Bold', sans-serif;
         font-size: $font-size-middle;
       }
+  
       #{$self}__category {
         font-family: 'AvenirNext', sans-serif;
         font-size: $font-size-small;
       }
     }
-    #{$self}__info {
+
+    #{$self}__address {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #{$self}__description {
       padding: 0 spacing(2);
       font-family: 'AvenirNext', sans-serif;
       font-size: $font-size-middle;
       color: $color-grey;
 
       p {
-        &:first-of-type {
-          margin-top: 16px;
-        }
         margin-block-start: spacing(1);
         margin-block-end: spacing(1);
         margin-bottom: 26px;
+  
+        &:first-of-type {
+          margin-top: 16px;
+        }
       }
 
       #{$self}__twitter {
         text-decoration: none;
         color: $color-black;
-        font-size: $font-size-small;
         transition: all 0.15s ease-in-out;
+
         &:hover {
           color: $color-green;
         }
@@ -88,19 +97,15 @@
 
 .map-marker {
   font-family: 'Avenir-Regular', sans-serif;
-  font-size: 14px;
-  color: white;
-
+  color: $color-white;
   display: flex;
   align-items: center;
-
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid $color-white;
   width: 10px;
   height: 10px;
-  background: linear-gradient(91deg, #43e895, #34b379);
-  background-size: 600% 600%;
-
+  background: linear-gradient(91deg, $color-green, $color-dark-green);
+  background-size: 600%;
   -webkit-animation: grad 6s ease infinite;
   -moz-animation: grad 6s ease infinite;
   animation: grad 6s ease infinite;

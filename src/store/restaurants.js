@@ -6,6 +6,7 @@ const restaurants = store({
   restaurantsList: [],
   isListUpload: false,
   isDetailsActive: false,
+  isDetailsHide: true,
   async getRestaurants() {
     fetch('http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json')
       .then(r => r.json())
@@ -21,7 +22,19 @@ const restaurants = store({
     restaurants.currentIndex = num
   },
   setDetailsActive(bool) {
-    restaurants.isDetailsActive = bool
+    if (bool) {
+      restaurants.isDetailsVisible = bool
+      setTimeout(() => {
+        restaurants.isDetailsActive = bool
+      }, 50)
+
+    } else {
+      setTimeout(() => {
+        restaurants.isDetailsVisible = bool
+      }, 600)
+      restaurants.isDetailsActive = bool
+    }
+
   }
 })
 export default restaurants

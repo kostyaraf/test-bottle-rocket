@@ -6,6 +6,7 @@ export default function Details(props) {
   const item = props.item || {}
   const { closeDetails, isActive } = props
   const wrapperClassName = 'details__wrapper'
+
   return (
     <div
       className={`
@@ -14,7 +15,6 @@ export default function Details(props) {
       onClick={e => {
         if (e.target.className.includes(wrapperClassName)) closeDetails()
       }}
-      // style={isActive ? {} : { left: '-100vw', opacity: 0 }}
     >
       <div className='details'>
         {item.location ? <DetailsMap {...item} /> : ''}

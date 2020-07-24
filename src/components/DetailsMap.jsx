@@ -1,6 +1,5 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
-// import '../../../assets/styles/DetailsMap.scss'
 
 export function DetailsMap(props) {
   const name = props.name || ''

@@ -19,13 +19,15 @@ export default view(() => {
           Lunch Time
         </MainHeader>
         <RestaurantsList />
-        <Details
-          item={restaurants.restaurantsList[restaurants.currentIndex]}
-          closeDetails={() => {
-            restaurants.setDetailsActive(false)
-          }}
-          isActive={restaurants.isDetailsActive}
-        />
+        {restaurants.isDetailsVisible && (
+          <Details
+            item={restaurants.restaurantsList[restaurants.currentIndex]}
+            closeDetails={() => {
+              restaurants.setDetailsActive(false)
+            }}
+            isActive={restaurants.isDetailsActive}
+          />
+        )}
       </MainContainer>
     </div>
   )
