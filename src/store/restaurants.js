@@ -17,7 +17,7 @@ const restaurants = store({
         restaurants.isListUpload = true
       })
       .catch(err => {
-        console.error('Rrrrr')
+        console.error(`Something wet wrong! Error: ${err}`)
         restaurants.isListUpload = true
       })
   },
