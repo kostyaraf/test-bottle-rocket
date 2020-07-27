@@ -13,8 +13,8 @@ export function DetailsInfo(props) {
       <div className='details__description'>
         {location.formattedAddress && (
           <p className='details__address'>
-            {location.formattedAddress.map(address => (
-              <span>{address}</span>
+            {location.formattedAddress.map((address, index) => (
+              <span key={index}>{address}</span>
             ))}
           </p>
         )}
