@@ -8,15 +8,18 @@ const restaurants = store({
   isDetailsActive: false,
   isDetailsHide: true,
   async getRestaurants() {
-    fetch('http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json')
+    fetch(
+      'http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json'
+    )
       .then(r => r.json())
       .then(r => {
-        restaurants.restaurantsList = r.restaurants;
+        restaurants.restaurantsList = r.restaurants
         restaurants.isListUpload = true
       })
       .catch(err => {
         console.error('Rrrrr')
-        restaurants.isListUpload = true})
+        restaurants.isListUpload = true
+      })
   },
   setCurrentIndex(num) {
     restaurants.currentIndex = num
@@ -27,13 +30,12 @@ const restaurants = store({
       setTimeout(() => {
         restaurants.isDetailsActive = bool
       }, 50)
-
     } else {
       setTimeout(() => {
         restaurants.isDetailsVisible = bool
       }, 600)
       restaurants.isDetailsActive = bool
     }
-  }
+  },
 })
 export default restaurants

@@ -54,7 +54,7 @@
         font-family: 'AvenirNext-Bold', sans-serif;
         font-size: $font-size-middle;
       }
-  
+
       #{$self}__category {
         font-family: 'AvenirNext', sans-serif;
         font-size: $font-size-small;
@@ -76,7 +76,7 @@
         margin-block-start: spacing(1);
         margin-block-end: spacing(1);
         margin-bottom: 26px;
-  
+
         &:first-of-type {
           margin-top: 16px;
         }
